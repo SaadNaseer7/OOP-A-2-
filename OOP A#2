@@ -1,0 +1,35 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class Course;
+private:
+string name;
+vector<string>students;
+public:
+Course(const string& CourseName, const vector<string>& studentList): name(CourseName), students(studentList){}
+Course deepCopy() const{
+return Course(name, students);
+} void addstudent(const string& studentName){
+students.push_back(studentName);
+}  void displaystudents() const {
+cout<<"Course: "<<name<<endl<<"Students: ";
+for(const auto&student: students){
+cout<<students<<" ";
+} cout<<endl;
+}
+};
+int main(){
+vector<string>initialstudents="Saad", "Hammad", "Zohaib";
+Course course1("Math", initialstudent);
+Course shallowCopyCourse=course1;
+shallowCopyCourse.addstudent("Umar");
+Course deepCopyCourse=course1.deepCopy();
+deepCopyCourse : addstudent("Abdullah");
+cout<<"Original Course: "<<endl;
+course1.displaystudents();
+cout<<"Shallow Copy: "<<endl;
+shallowCopyCourse.displaystudents();
+cout<<"Deep Copy: "<<endl;
+deepCopyCourse.displaystudents();
+return(0);
+}
